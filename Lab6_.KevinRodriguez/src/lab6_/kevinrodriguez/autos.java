@@ -10,21 +10,52 @@ package lab6_.kevinrodriguez;
  * @author Kevin
  */
 public class autos {
-    public int vin,canp,capasima,precio,potencia;
+   
     public String marca,modelo,tipo,color;
+     public int vin,canp,capasima,precio,potencia;
 
-    public autos() {
-    }
-
-    public autos(int vin, int canp, int capasima, int precio, int potencia, String marca, String modelo, String tipo, String color) {
+    public autos(String marca, String modelo, String tipo, String color, int vin, int canp, int capasima, int precio, int potencia) {
+        this.marca = marca;
+        this.modelo = modelo;
+        this.tipo = tipo;
+        this.color = color;
         this.vin = vin;
         this.canp = canp;
         this.capasima = capasima;
         this.precio = precio;
         this.potencia = potencia;
+    }
+
+
+    public String getMarca() {
+        return marca;
+    }
+
+    public void setMarca(String marca) {
         this.marca = marca;
+    }
+
+    public String getModelo() {
+        return modelo;
+    }
+
+    public void setModelo(String modelo) {
         this.modelo = modelo;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
         this.tipo = tipo;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
         this.color = color;
     }
 
@@ -68,37 +99,8 @@ public class autos {
         this.potencia = potencia;
     }
 
-    public String getMarca() {
-        return marca;
-    }
 
-    public void setMarca(String marca) {
-        this.marca = marca;
-    }
-
-    public String getModelo() {
-        return modelo;
-    }
-
-    public void setModelo(String modelo) {
-        this.modelo = modelo;
-    }
-
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
-    }
+   
 
     @Override
     public String toString() {
