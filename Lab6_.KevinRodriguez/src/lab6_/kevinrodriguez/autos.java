@@ -9,13 +9,8 @@ package lab6_.kevinrodriguez;
  *
  * @author Kevin
  */
-public class Lab6_KevinRodriguez {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-       
-    }
+public class autos {
+    public int vin,canp,capasima,precio,potencia;
+    public String marca,modelo,tipo,color;
     
 }
