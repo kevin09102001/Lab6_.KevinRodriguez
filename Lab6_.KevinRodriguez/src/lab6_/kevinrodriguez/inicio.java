@@ -14,7 +14,9 @@ import java.io.IOException;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
@@ -80,6 +82,14 @@ public class inicio extends javax.swing.JFrame  {
         cantidad = new javax.swing.JFormattedTextField();
         color = new javax.swing.JTextField();
         jButton5 = new javax.swing.JButton();
+        admin = new javax.swing.JDialog();
+        clientes = new javax.swing.JDialog();
+        jPanel4 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tablaauto = new javax.swing.JTextArea();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -212,9 +222,9 @@ public class inicio extends javax.swing.JFrame  {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
                     .addComponent(puesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(113, 113, 113)
+                .addGap(94, 94, 94)
                 .addComponent(jButton3)
-                .addContainerGap(103, Short.MAX_VALUE))
+                .addContainerGap(122, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout registrarLayout = new javax.swing.GroupLayout(registrar.getContentPane());
@@ -372,6 +382,63 @@ public class inicio extends javax.swing.JFrame  {
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        javax.swing.GroupLayout adminLayout = new javax.swing.GroupLayout(admin.getContentPane());
+        admin.getContentPane().setLayout(adminLayout);
+        adminLayout.setHorizontalGroup(
+            adminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 690, Short.MAX_VALUE)
+        );
+        adminLayout.setVerticalGroup(
+            adminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 524, Short.MAX_VALUE)
+        );
+
+        tablaauto.setColumns(20);
+        tablaauto.setRows(5);
+        jScrollPane1.setViewportView(tablaauto);
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(757, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(91, 91, 91)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(244, Short.MAX_VALUE))
+        );
+
+        jMenu1.setText("archivo");
+
+        jMenuItem1.setText("abrir ");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
+
+        jMenuBar1.add(jMenu1);
+
+        clientes.setJMenuBar(jMenuBar1);
+
+        javax.swing.GroupLayout clientesLayout = new javax.swing.GroupLayout(clientes.getContentPane());
+        clientes.getContentPane().setLayout(clientesLayout);
+        clientesLayout.setHorizontalGroup(
+            clientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        clientesLayout.setVerticalGroup(
+            clientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("LOGIN");
@@ -483,11 +550,18 @@ public class inicio extends javax.swing.JFrame  {
                       p.equals(contrase.getText())) {
                     if (  u.equals("admin") && 
                       u.equals("admin")) {
-                    JOptionPane.showMessageDialog(null, "simon");
+                        admin.setModal(true);
+                        admin.pack();
+                        admin.setLocationRelativeTo(this);
+                        admin.setVisible(true);
                     
                     break;
                 }
-                    JOptionPane.showMessageDialog(null, "usuario encontrado");               
+                    JOptionPane.showMessageDialog(null, "usuario encontrado");   
+                    clientes.setModal(true);
+                        clientes.pack();
+                        clientes.setLocationRelativeTo(this);
+                        clientes.setVisible(true);
             }
           }
         } catch (Exception e) {
@@ -522,7 +596,16 @@ public class inicio extends javax.swing.JFrame  {
             bw.write(contrase1.getText()+";");
             bw.write(Integer.parseInt(dinero.getText())+";");
             bw.flush();
-        } catch (Exception e) {
+            ID.setText("");
+            nombre.setText("");
+            apellido.setText("");
+            nacional.setText("");
+            lugar.setText("");
+            puesto.setText("");
+            usuario1.setText("");
+            contrase1.setText("");
+            dinero.setText("");
+            } catch (Exception e) {
         }        
         try {
             bw.close();
@@ -543,6 +626,7 @@ public class inicio extends javax.swing.JFrame  {
        registrarauto.pack();
        registrarauto.setLocationRelativeTo(this);
        registrarauto.setVisible(true);
+       registrarauto.dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -561,8 +645,18 @@ public class inicio extends javax.swing.JFrame  {
             bw.write(Integer.parseInt(capacidad.getText())+";");
             bw.write(color.getText()+";");
             bw.write(Integer.parseInt(precio.getText())+";");
-            bw.write(Integer.parseInt(potencia.getText())+";");
+            bw.write(Integer.parseInt(potencia.getText()));
+            bw.newLine();
             bw.flush();
+            vin.setText("");
+            marca.setText("");
+            modelo.setText("");
+            tipo.setText("");
+            cantidad.setText("");
+            capacidad.setText("");
+            color.setText("");
+            precio.setText("");
+            potencia.setText("");
         } catch (Exception e) {
         }        
         try {
@@ -579,6 +673,45 @@ public class inicio extends javax.swing.JFrame  {
         registrar.dispose();
 
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        File fichero = null;
+        FileReader fr = null;
+        BufferedReader br = null;
+        tablaauto.setText("");
+        try {
+            JFileChooser jfc = new JFileChooser("./");
+            FileNameExtensionFilter filtro = 
+                    new FileNameExtensionFilter(
+                            "Archivos de Texto", "txt");
+            FileNameExtensionFilter filtro2 = 
+                new FileNameExtensionFilter(
+                        "Imagenes", "jpg", "png", "bmp");
+            jfc.setFileFilter(filtro);
+            jfc.addChoosableFileFilter(filtro2);            
+            int seleccion = jfc.showOpenDialog(this);
+            if (seleccion == JFileChooser.APPROVE_OPTION)
+            {
+               fichero = jfc.getSelectedFile();
+               fr = new FileReader(fichero);
+               br=new BufferedReader(fr);
+               String linea;
+               tablaauto.setText("");
+               while(  (linea=br.readLine()) !=null  ){                    
+                    tablaauto.append(linea);
+                    tablaauto.append("\n");
+                }
+            } //fin if
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        try {
+            br.close();
+            fr.close();
+        } catch (IOException ex) {
+        }
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -617,9 +750,11 @@ public class inicio extends javax.swing.JFrame  {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFormattedTextField ID;
+    private javax.swing.JDialog admin;
     private javax.swing.JTextField apellido;
     private javax.swing.JFormattedTextField cantidad;
     private javax.swing.JFormattedTextField capacidad;
+    private javax.swing.JDialog clientes;
     private javax.swing.JTextField color;
     private javax.swing.JTextField contrase;
     private javax.swing.JTextField contrase1;
@@ -650,9 +785,14 @@ public class inicio extends javax.swing.JFrame  {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField lugar;
     private javax.swing.JTextField marca;
     private javax.swing.JTextField modelo;
@@ -663,6 +803,7 @@ public class inicio extends javax.swing.JFrame  {
     private javax.swing.JTextField puesto;
     private javax.swing.JDialog registrar;
     private javax.swing.JDialog registrarauto;
+    private javax.swing.JTextArea tablaauto;
     private javax.swing.JTextField tipo;
     private javax.swing.JTextField usuario;
     private javax.swing.JTextField usuario1;
