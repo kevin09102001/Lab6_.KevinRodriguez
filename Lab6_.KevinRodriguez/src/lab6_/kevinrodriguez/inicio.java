@@ -18,6 +18,8 @@ import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
 
 /**
  *
@@ -113,6 +115,10 @@ public class inicio extends javax.swing.JFrame  {
         ver1 = new javax.swing.JTextArea();
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
+        jPanel7 = new javax.swing.JPanel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        arbol = new javax.swing.JTree();
+        jButton11 = new javax.swing.JButton();
         clientes = new javax.swing.JDialog();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -120,8 +126,10 @@ public class inicio extends javax.swing.JFrame  {
         jButton9 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        dinedis = new javax.swing.JTextField();
         cliente = new javax.swing.JLabel();
+        client = new javax.swing.JLabel();
+        money = new javax.swing.JLabel();
+        jButton10 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -586,6 +594,43 @@ public class inicio extends javax.swing.JFrame  {
 
         jTabbedPane1.addTab("eliminar", jPanel6);
 
+        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("root");
+        arbol.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jScrollPane4.setViewportView(arbol);
+
+        jButton11.setText("jButton11");
+        jButton11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton11MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(280, 280, 280)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(381, 381, 381)
+                        .addComponent(jButton11)))
+                .addContainerGap(377, Short.MAX_VALUE))
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(47, 47, 47)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(51, 51, 51)
+                .addComponent(jButton11)
+                .addContainerGap(87, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("arbol", jPanel7);
+
         javax.swing.GroupLayout registrarautoLayout = new javax.swing.GroupLayout(registrarauto.getContentPane());
         registrarauto.getContentPane().setLayout(registrarautoLayout);
         registrarautoLayout.setHorizontalGroup(
@@ -612,46 +657,70 @@ public class inicio extends javax.swing.JFrame  {
 
         jLabel15.setText("Dinero:");
 
+        client.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        money.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jButton10.setText("Comprar auto");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton9)
-                .addGap(84, 84, 84))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel15))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(dinedis, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 558, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addGap(0, 344, Short.MAX_VALUE)
+                        .addComponent(jButton10)
+                        .addGap(143, 143, 143))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(78, 78, 78)
+                                .addComponent(cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(53, 53, 53)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel4Layout.createSequentialGroup()
+                                        .addComponent(jLabel5)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(client, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel4Layout.createSequentialGroup()
+                                        .addComponent(jLabel15)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(money, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(171, 171, 171))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButton9)
+                .addGap(250, 250, 250))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(91, 91, 91)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(118, 118, 118)
+                        .addComponent(cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(33, 33, 33)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
-                            .addComponent(cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(66, 66, 66)
+                            .addComponent(client, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(64, 64, 64)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel15)
-                            .addComponent(dinedis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(40, 40, 40)
+                            .addComponent(money, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(160, 160, 160)
+                        .addComponent(jButton10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(53, 53, 53)))
                 .addComponent(jButton9)
-                .addContainerGap(205, Short.MAX_VALUE))
+                .addContainerGap(239, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout clientesLayout = new javax.swing.GroupLayout(clientes.getContentPane());
@@ -775,15 +844,18 @@ public class inicio extends javax.swing.JFrame  {
                         clientes.pack();
                         clientes.setLocationRelativeTo(this);
                         clientes.setVisible(true);
-                        cliente.setText(u);    
+                        cliente.setText(usuario.getText());       
             }
           }
         } catch (Exception e) {
             e.printStackTrace();
         }
         sc.close();
+         client.setText(usuario.getText());
        
-        
+       
+   
+      
         
         
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -797,7 +869,7 @@ public class inicio extends javax.swing.JFrame  {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        File archivo;
+/*        File archivo;
         FileWriter fw=null;
        BufferedWriter bw=null;
         try {
@@ -814,15 +886,7 @@ public class inicio extends javax.swing.JFrame  {
             bw.write(contrase1.getText()+";");
             bw.write(Integer.parseInt(dinero.getText())+";");
             bw.flush();
-            ID.setText("");
-            nombre.setText("");
-            apellido.setText("");
-            nacional.setText("");
-            lugar.setText("");
-            puesto.setText("");
-            usuario1.setText("");
-            contrase1.setText("");
-            dinero.setText("");
+            
             } catch (Exception e) {
         }        
         try {
@@ -836,7 +900,28 @@ public class inicio extends javax.swing.JFrame  {
             Logger.getLogger(inicio.class.getName()).log(Level.SEVERE, null, ex);
         }
         JOptionPane.showMessageDialog(null, "usuario registrado correctamente");
-        registrar.dispose();
+        registrar.dispose();*/
+        administrarusuario ap= new administrarusuario("./usuarios.txt");        
+        ap.cargarArchivo();
+     
+        clientes p= new clientes(Integer.parseInt(ID.getText()),nombre.getText(),apellido.getText(),nacional.getText(),lugar.getText(),puesto.getText(),usuario1.getText(),contrase1.getText(),Integer.parseInt(dinero.getText()) );
+        ap.getListaautos().add(p);
+        
+        try {
+            ap.escribirArchivo();
+        } catch (IOException ex) {
+            Logger.getLogger(inicio.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        JOptionPane.showMessageDialog(null, "usuario registrado correctamente");
+        ID.setText("");
+            nombre.setText("");
+            apellido.setText("");
+            nacional.setText("");
+            lugar.setText("");
+            puesto.setText("");
+            usuario1.setText("");
+            contrase1.setText("");
+            dinero.setText("");
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -967,6 +1052,34 @@ public class inicio extends javax.swing.JFrame  {
         }
     }//GEN-LAST:event_jButton9ActionPerformed
 
+    private void jButton11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton11MouseClicked
+        DefaultTreeModel m=(DefaultTreeModel) arbol.getModel();
+        JFileChooser jf=new JFileChooser();
+        jf.setFileSelectionMode( JFileChooser.DIRECTORIES_ONLY );
+        int s=jf.showOpenDialog(registrarauto);
+        File f=jf.getSelectedFile();
+        m.setRoot(new DefaultMutableTreeNode(f.getName()));
+        //listar_no_orden(f,(DefaultMutableTreeNode)m.getRoot());
+        listar_no_orden(f,(DefaultMutableTreeNode)m.getRoot());
+    }//GEN-LAST:event_jButton11MouseClicked
+    public void listar_no_orden(File p_raiz, DefaultMutableTreeNode nodo){  
+        try{
+            for(File temp:p_raiz.listFiles()){
+                if( temp.isFile() ){                
+                    DefaultMutableTreeNode n=new DefaultMutableTreeNode(
+                            temp.getName());
+                    nodo.add(n);      
+                }else{
+                    DefaultMutableTreeNode n=new DefaultMutableTreeNode(
+                            temp.getName());
+                    nodo.add(n);  
+                    listar_no_orden(temp,n);
+                }
+            } 
+        }
+    catch(Exception e){        
+    }
+}
     /**
      * @param args the command line arguments
      */
@@ -1005,19 +1118,22 @@ public class inicio extends javax.swing.JFrame  {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFormattedTextField ID;
     private javax.swing.JTextField apellido;
+    private javax.swing.JTree arbol;
     private javax.swing.JFormattedTextField cantidad1;
     private javax.swing.JFormattedTextField cantidad2;
     private javax.swing.JFormattedTextField capacidad1;
     private javax.swing.JFormattedTextField capacidad2;
+    private javax.swing.JLabel client;
     private javax.swing.JLabel cliente;
     private javax.swing.JDialog clientes;
     private javax.swing.JTextField color1;
     private javax.swing.JTextField color2;
     private javax.swing.JTextField contrase;
     private javax.swing.JTextField contrase1;
-    private javax.swing.JTextField dinedis;
     private javax.swing.JFormattedTextField dinero;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -1065,15 +1181,18 @@ public class inicio extends javax.swing.JFrame  {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField lugar;
     private javax.swing.JTextField marca1;
     private javax.swing.JTextField marca2;
     private javax.swing.JTextField modelo1;
     private javax.swing.JTextField modelo2;
+    private javax.swing.JLabel money;
     private javax.swing.JTextField nacional;
     private javax.swing.JTextField nombre;
     private javax.swing.JFormattedTextField potencia1;
