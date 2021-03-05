@@ -117,9 +117,11 @@ public class inicio extends javax.swing.JFrame  {
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaauto = new javax.swing.JTextArea();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        jButton9 = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        dinedis = new javax.swing.JTextField();
+        cliente = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -599,36 +601,58 @@ public class inicio extends javax.swing.JFrame  {
         tablaauto.setRows(5);
         jScrollPane1.setViewportView(tablaauto);
 
+        jButton9.setText("Mostrar autos");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setText("Cliente: ");
+
+        jLabel15.setText("Dinero:");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton9)
+                .addGap(84, 84, 84))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(757, Short.MAX_VALUE)
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel15))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(dinedis, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 558, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(91, 91, 91)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(244, Short.MAX_VALUE))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(91, 91, 91)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(118, 118, 118)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(66, 66, 66)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel15)
+                            .addComponent(dinedis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(40, 40, 40)
+                .addComponent(jButton9)
+                .addContainerGap(205, Short.MAX_VALUE))
         );
-
-        jMenu1.setText("archivo");
-
-        jMenuItem1.setText("abrir ");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItem1);
-
-        jMenuBar1.add(jMenu1);
-
-        clientes.setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout clientesLayout = new javax.swing.GroupLayout(clientes.getContentPane());
         clientes.getContentPane().setLayout(clientesLayout);
@@ -751,12 +775,17 @@ public class inicio extends javax.swing.JFrame  {
                         clientes.pack();
                         clientes.setLocationRelativeTo(this);
                         clientes.setVisible(true);
+                        cliente.setText(u);    
             }
           }
         } catch (Exception e) {
             e.printStackTrace();
         }
         sc.close();
+       
+        
+        
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -809,45 +838,6 @@ public class inicio extends javax.swing.JFrame  {
         JOptionPane.showMessageDialog(null, "usuario registrado correctamente");
         registrar.dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        File fichero = null;
-        FileReader fr = null;
-        BufferedReader br = null;
-        tablaauto.setText("");
-        try {
-            JFileChooser jfc = new JFileChooser("./");
-            FileNameExtensionFilter filtro = 
-                    new FileNameExtensionFilter(
-                            "Archivos de Texto", "txt");
-            FileNameExtensionFilter filtro2 = 
-                new FileNameExtensionFilter(
-                        "Imagenes", "jpg", "png", "bmp");
-            jfc.setFileFilter(filtro);
-            jfc.addChoosableFileFilter(filtro2);            
-            int seleccion = jfc.showOpenDialog(this);
-            if (seleccion == JFileChooser.APPROVE_OPTION)
-            {
-               fichero = jfc.getSelectedFile();
-               fr = new FileReader(fichero);
-               br=new BufferedReader(fr);
-               String linea;
-               tablaauto.setText("");
-               while(  (linea=br.readLine()) !=null  ){                    
-                    tablaauto.append(linea);
-                    tablaauto.append("\n");
-                }
-            } //fin if
-            
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        try {
-            br.close();
-            fr.close();
-        } catch (IOException ex) {
-        }
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
 
@@ -904,7 +894,6 @@ public class inicio extends javax.swing.JFrame  {
         ap.getListaautos().get(p).setModelo(modelo2.getText());
         ap.getListaautos().get(p).setTipo(tipo2.getText());
         ap.getListaautos().get(p).setColor(color2.getText());
-        ap.getListaautos().get(p).setMarca(marca2.getText());
         ap.getListaautos().get(p).setVin(Integer.parseInt(vin2.getText()));
         ap.getListaautos().get(p).setCanp(Integer.parseInt(cantidad2.getText()));
         ap.getListaautos().get(p).setCapasima(Integer.parseInt(capacidad2.getText()));
@@ -960,6 +949,24 @@ public class inicio extends javax.swing.JFrame  {
         }
     }//GEN-LAST:event_jButton8ActionPerformed
 
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+       tablaauto.setText("");
+        File archivo=new File("C:\\Users\\Kevin\\Desktop\\Lab6_.KevinRodriguez\\Lab6_.KevinRodriguez\\autos.txt");
+       
+       try{
+           BufferedReader leer=new BufferedReader (new FileReader(archivo));
+           String linea=leer.readLine();
+           while(linea !=null){
+               tablaauto.append(linea+"\n");
+               linea=leer.readLine();
+           }
+       }catch( FileNotFoundException ex){
+           
+       } catch (IOException ex) {
+            Logger.getLogger(inicio.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton9ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1002,11 +1009,13 @@ public class inicio extends javax.swing.JFrame  {
     private javax.swing.JFormattedTextField cantidad2;
     private javax.swing.JFormattedTextField capacidad1;
     private javax.swing.JFormattedTextField capacidad2;
+    private javax.swing.JLabel cliente;
     private javax.swing.JDialog clientes;
     private javax.swing.JTextField color1;
     private javax.swing.JTextField color2;
     private javax.swing.JTextField contrase;
     private javax.swing.JTextField contrase1;
+    private javax.swing.JTextField dinedis;
     private javax.swing.JFormattedTextField dinero;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -1016,12 +1025,14 @@ public class inicio extends javax.swing.JFrame  {
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
@@ -1043,13 +1054,11 @@ public class inicio extends javax.swing.JFrame  {
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
