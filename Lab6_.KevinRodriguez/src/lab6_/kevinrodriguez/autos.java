@@ -99,9 +99,6 @@ public class autos {
         this.potencia = potencia;
     }
 
-
-   
-
     @Override
     public String toString() {
         return "autos{" + "marca=" + marca + '}';
